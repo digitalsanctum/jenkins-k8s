@@ -26,18 +26,11 @@ kc apply -f kubernetes
 kc apply -f kubernetes/service.yaml --validate=false
 ```
 
-TODO: investigate:
-```bash
-error: error validating "kubernetes/service.yaml": error validating data: ValidationError(Service.metadata): unknown field "fqdn" in io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta; if you choose to ignore these errors, turn validation off with --validate=false
-```
-
 Get the port via:
 
 ```bash
 kc get service -n jenkins
 ```
-
-Open http://nuc1:30128 in a browser.
 
 ## Install via Helm
 

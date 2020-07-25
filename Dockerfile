@@ -1,11 +1,6 @@
-FROM jenkins/jenkins:2.235.2-plugins
-
+FROM jenkins/jenkins:2.235.2
 
 USER root
-
-# Install plugins
-# TODO add other plugins
-#RUN /usr/local/bin/install-plugins.sh kubernetes
 
 # install default plugins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
