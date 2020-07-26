@@ -17,10 +17,11 @@ spec:
         app: jenkins
     spec:
       terminationGracePeriodSeconds: 10
+      securityContext:
+        fsGroup: 99
       containers:
         - name: jenkins
-          # build this image via Dockerfile in this project
-          image: digitalsanctum/jenkins:2.235.2
+          image: digitalsanctum/jenkins
           imagePullPolicy: Always
           env:
             - name: LIMITS_MEMORY
@@ -29,7 +30,7 @@ spec:
                   resource: limits.memory
                   divisor: 1Mi
             - name: JAVA_OPTS
-              value: -Djenkins.install.runSetupWizard=false -Xmx$(LIMITS_MEMORY)m -XshowSettings:vm -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
+              value: -Djenkins.install.runSetupWizard=false -Xmx$(LIMITS_MEMORY)m
           ports:        
             - name: http-port
               containerPort: 8080
@@ -44,9 +45,8 @@ spec:
               memory: 500Mi
           volumeMounts:
             - name: jenkins-home
-              mountPath: /data/jenkins
+              mountPath: /var/jenkins_home
       volumes:
         - name: jenkins-home
           persistentVolumeClaim:
             claimName: jenkins-pv-claim
-            readOnly: false
