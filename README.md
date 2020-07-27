@@ -4,8 +4,8 @@ The intent of this document is to outline the steps necessary to install Jenkins
 
 ## Technology Components
 
-* [Kubernetes](https://kubernetes.io/) cluster
-* [Rook](https://rook.io/), [Ceph File System](https://docs.ceph.com/docs/master/cephfs/)
+* [Kubernetes](https://kubernetes.io/) cluster - see [digitalsanctum/kubernetes-bare-metal: Personal notes for setting up a Kubernetes cluster on bare metal.](https://github.com/digitalsanctum/kubernetes-bare-metal)
+* [Rook](https://rook.io/), [Ceph File System](https://docs.ceph.com/docs/master/cephfs/) - see [digitalsanctum/rook-ceph-bare-metal](https://github.com/digitalsanctum/rook-ceph-bare-metal)
 * [Jenkins](https://www.jenkins.io/)
 * [Kubernetes | Jenkins plugin](https://plugins.jenkins.io/kubernetes/)
 
