@@ -1,6 +1,18 @@
 # jenkins-k8s
 
+The intent of this document is to outline the steps necessary to install Jenkins with the Kubernetes plugin on a cluster. The Kubernetes plugin allows for a scale to zero solution for build agents which saves on resources.
+
+## Technology Components
+
+* Kubernetes cluster
+* Rook CephFS
+* Jenkins
+* Kubernetes Jenkins plugin
+
+
 ## Build image
+
+The following will build a Jenkins container image via `Dockerfile` and automate the installation of plugins defined in the `plugins.txt` file.
 
 Update `plugins.txt` as needed.
 
@@ -9,6 +21,7 @@ docker build -t digitalsanctum/jenkins:2.235.2 .
 docker login
 docker push digitalsanctum/jenkins:2.235.2
 ```
+
 
 Test locally.
 
